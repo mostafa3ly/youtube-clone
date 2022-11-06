@@ -6,7 +6,6 @@ import mobileLogo from "../assets/logo-mobile.svg";
 const StyledLogo = styled.div`
   display: flex;
   align-items: center;
-  padding: 10px;
   letter-spacing: -1px;
 `;
 
