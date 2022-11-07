@@ -2,7 +2,7 @@ import { FC } from "react";
 import styled from "styled-components";
 
 const StyledSearchInput = styled.input`
-  margin: 10px 0;
+  margin: 10px 4px;
   border: 0;
   padding: 0 8px;
   outline: none;

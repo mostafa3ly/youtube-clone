@@ -1,6 +1,7 @@
 import { FC } from "react";
 import styled from "styled-components";
 import Logo from "./Logo";
+import SearchButton from "./SearchButton";
 import SearchInput from "./SearchInput";
 
 const StyledHeader = styled.header`
@@ -16,6 +17,7 @@ const Header: FC = () => {
     <StyledHeader>
       <Logo />
       <SearchInput />
+      <SearchButton />
     </StyledHeader>
   );
 };
