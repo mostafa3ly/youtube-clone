@@ -9,6 +9,7 @@ import { Video } from "./interfaces/Video";
 function App() {
   const [searchText, setSearchText] = useState("");
   const [, setResults] = useState<Video[]>([]);
+  const [totalResults, setTotalResults] = useState(0);
 
   const handleChangeSearchText = (e: ChangeEvent<HTMLInputElement>): void => {
     setSearchText(e.target.value);
@@ -20,6 +21,7 @@ function App() {
         params: { q: searchText },
       });
       setResults(data.items);
+      setTotalResults(data.pageInfo.totalResults);
     } catch {}
   };
 
@@ -30,7 +32,7 @@ function App() {
         searchText={searchText}
         onSubmit={handleFetchResults}
       />
-      <FilterBar />
+      <FilterBar total={totalResults} />
     </div>
   );
 }

@@ -17,13 +17,17 @@ const StyledFilterBar = styled.div`
   }
 `;
 
-const FilterBar: FC = () => {
+interface FilterBarProps {
+  total: number;
+}
+
+const FilterBar: FC<FilterBarProps> = ({ total }) => {
   const isMobileView = useIsMobileView();
 
   const renderFilterBar = (): JSX.Element => {
     // Can be replaced by CSS media queries.
 
-    return isMobileView ? <MobileFilterBar /> : <DesktopFilterBar />;
+    return isMobileView ? <MobileFilterBar /> : <DesktopFilterBar total={total}/>;
   };
 
   return <StyledFilterBar>{renderFilterBar()}</StyledFilterBar>;
