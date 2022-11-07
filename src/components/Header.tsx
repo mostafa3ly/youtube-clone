@@ -1,5 +1,6 @@
 import { FC, useState } from "react";
 import styled from "styled-components";
+import { SearchProps } from "../interfaces/SearchProps";
 import Logo from "./Logo";
 import SearchBox from "./SearchBox";
 import SearchButton from "./SearchButton";
@@ -12,7 +13,9 @@ const StyledHeader = styled.header`
   }
 `;
 
-const Header: FC = () => {
+interface HeaderProps extends SearchProps {}
+
+const Header: FC<HeaderProps> = ({ onChangeSearchText, searchText }) => {
   const [isEditing, setIsEditing] = useState(false);
 
   const handleClickSearch = (): void => {
@@ -22,7 +25,11 @@ const Header: FC = () => {
   return (
     <StyledHeader>
       <Logo />
-      <SearchBox isEditing={isEditing} />
+      <SearchBox
+        isEditing={isEditing}
+        onChangeSearchText={onChangeSearchText}
+        searchText={searchText}
+      />
       <SearchButton onClickSearch={handleClickSearch} />
     </StyledHeader>
   );

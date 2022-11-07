@@ -1,5 +1,6 @@
 import { FC } from "react";
 import styled from "styled-components";
+import { SearchProps } from "../interfaces/SearchProps";
 import SearchInput from "./SearchInput";
 
 const StyledSearchBox = styled.div`
@@ -13,14 +14,24 @@ const StyledSearchText = styled.p`
   margin: auto 0;
 `;
 
-interface SearchBoxProps {
+interface SearchBoxProps extends SearchProps {
   isEditing: boolean;
 }
 
-const SearchBox: FC<SearchBoxProps> = ({ isEditing }) => {
+const SearchBox: FC<SearchBoxProps> = ({
+  isEditing,
+  searchText,
+  onChangeSearchText,
+}) => {
   const renderSearch = (): JSX.Element => {
-    if (isEditing) return <SearchInput />;
-    return <StyledSearchText></StyledSearchText>;
+    if (isEditing)
+      return (
+        <SearchInput
+          onChangeSearchText={onChangeSearchText}
+          searchText={searchText}
+        />
+      );
+    return <StyledSearchText>{searchText}</StyledSearchText>;
   };
   return <StyledSearchBox>{renderSearch()}</StyledSearchBox>;
 };
