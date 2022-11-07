@@ -1,5 +1,6 @@
 import { ChangeEvent, useState } from "react";
 import "./App.css";
+import FilterBar from "./components/FilterBar";
 import Header from "./components/Header";
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
         onChangeSearchText={handleChangeSearchText}
         searchText={searchText}
       />
+      <FilterBar />
     </div>
   );
 }
