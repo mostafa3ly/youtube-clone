@@ -7,9 +7,13 @@ const StyledSearchButton = styled.button`
   background: transparent;
 `;
 
-const SearchButton: FC = () => {
+interface SearchButtonProps {
+  onClickSearch: () => void;
+}
+
+const SearchButton: FC<SearchButtonProps> = ({ onClickSearch }) => {
   return (
-    <StyledSearchButton>
+    <StyledSearchButton onClick={onClickSearch}>
       <img alt="Search" src={search} />
     </StyledSearchButton>
   );

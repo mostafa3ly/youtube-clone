@@ -1,8 +1,8 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import styled from "styled-components";
 import Logo from "./Logo";
+import SearchBox from "./SearchBox";
 import SearchButton from "./SearchButton";
-import SearchInput from "./SearchInput";
 
 const StyledHeader = styled.header`
   height: 56px;
@@ -13,11 +13,17 @@ const StyledHeader = styled.header`
 `;
 
 const Header: FC = () => {
+  const [isEditing, setIsEditing] = useState(false);
+
+  const handleClickSearch = (): void => {
+    setIsEditing(true);
+  };
+
   return (
     <StyledHeader>
       <Logo />
-      <SearchInput />
-      <SearchButton />
+      <SearchBox isEditing={isEditing} />
+      <SearchButton onClickSearch={handleClickSearch} />
     </StyledHeader>
   );
 };
