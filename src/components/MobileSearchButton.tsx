@@ -1,17 +1,17 @@
 import { FC } from "react";
 import styled from "styled-components";
-import search from "../assets/search.svg";
+import search from "../assets/search-mobile.svg";
 
 const StyledSearchButton = styled.button`
   border: none;
   background: transparent;
 `;
 
-interface SearchButtonProps {
+interface MobileSearchButtonProps {
   onClickSearch: () => void;
 }
 
-const SearchButton: FC<SearchButtonProps> = ({ onClickSearch }) => {
+const MobileSearchButton: FC<MobileSearchButtonProps> = ({ onClickSearch }) => {
   return (
     <StyledSearchButton onClick={onClickSearch}>
       <img alt="Search" src={search} />
@@ -19,4 +19,4 @@ const SearchButton: FC<SearchButtonProps> = ({ onClickSearch }) => {
   );
 };
 
-export default SearchButton;
+export default MobileSearchButton;
