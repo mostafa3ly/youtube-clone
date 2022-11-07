@@ -27,6 +27,7 @@ interface DesktopSearchBoxProps extends SearchProps {}
 const DesktopSearchBox: FC<DesktopSearchBoxProps> = ({
   onChangeSearchText,
   searchText,
+  onSubmit,
 }) => {
   return (
     <SearchBox>
@@ -35,7 +36,7 @@ const DesktopSearchBox: FC<DesktopSearchBoxProps> = ({
         value={searchText}
         onChange={onChangeSearchText}
       />
-      <Button>
+      <Button onClick={onSubmit}>
         <img alt="Search" src={search} />
       </Button>
     </SearchBox>

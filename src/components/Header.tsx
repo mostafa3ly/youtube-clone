@@ -20,7 +20,11 @@ const StyledHeader = styled.header`
 
 interface HeaderProps extends SearchProps {}
 
-const Header: FC<HeaderProps> = ({ onChangeSearchText, searchText }) => {
+const Header: FC<HeaderProps> = ({
+  onChangeSearchText,
+  searchText,
+  onSubmit,
+}) => {
   const isMobileView = useIsMobileView();
 
   const renderHeader = (): JSX.Element => {
@@ -28,11 +32,13 @@ const Header: FC<HeaderProps> = ({ onChangeSearchText, searchText }) => {
 
     return isMobileView ? (
       <MobileHeadBar
+        onSubmit={onSubmit}
         searchText={searchText}
         onChangeSearchText={onChangeSearchText}
       />
     ) : (
       <DesktopHeadBar
+        onSubmit={onSubmit}
         searchText={searchText}
         onChangeSearchText={onChangeSearchText}
       />
