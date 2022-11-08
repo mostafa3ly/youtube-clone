@@ -5,13 +5,13 @@ import Content from "./components/Content";
 import FilterBar from "./components/FilterBar";
 import Header from "./components/Header";
 import useIsMounted from "./hooks/useIsMounted";
-import { Item } from "./interfaces/Item";
+import { BaseItem } from "./interfaces/BaseItem";
 
 function App() {
   const isMounted = useIsMounted();
 
   const [searchText, setSearchText] = useState("");
-  const [results, setResults] = useState<Item[]>([]);
+  const [results, setResults] = useState<BaseItem[]>([]);
   const [totalResults, setTotalResults] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
 

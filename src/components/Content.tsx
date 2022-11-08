@@ -1,6 +1,6 @@
 import { FC } from "react";
 import styled from "styled-components";
-import { Item } from "../interfaces/Item";
+import { BaseItem } from "../interfaces/BaseItem";
 import LoadingView from "./LoadingView";
 import ResultList from "./ResultList";
 
@@ -12,7 +12,7 @@ const StyledContent = styled.main`
 
 interface ContentProps {
   isLoading: boolean;
-  results: Item[];
+  results: BaseItem[];
 }
 
 const Content: FC<ContentProps> = ({ isLoading, results }) => {

@@ -1,6 +1,7 @@
 import { ChannelId } from "./ChannelId";
-import { Item } from "./Item";
+import { ChannelListItem } from "./ChannelListItem";
+import { BaseItem } from "./BaseItem";
 
-export interface Channel extends Item {
+export interface Channel extends BaseItem, ChannelListItem{
     id: ChannelId;
 }

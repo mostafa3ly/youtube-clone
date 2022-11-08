@@ -1,6 +1,6 @@
-import { Item } from "./Item";
+import { BaseItem } from "./BaseItem";
 
 export interface SearchResult {
-    items: Item[];
+    items: BaseItem[];
     pageInfo: { totalResults: number }
 }

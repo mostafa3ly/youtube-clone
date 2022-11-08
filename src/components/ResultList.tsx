@@ -1,7 +1,7 @@
 import { FC, Fragment } from "react";
 import { ItemKind } from "../enums/ItemKind";
 import { Channel } from "../interfaces/Channel";
-import { Item } from "../interfaces/Item";
+import { BaseItem } from "../interfaces/BaseItem";
 import { PLaylist } from "../interfaces/Playlist";
 import { Video } from "../interfaces/Video";
 import ChannelItem from "./ChannelItem";
@@ -9,7 +9,7 @@ import PlaylistItem from "./PlaylistItem";
 import VideoItem from "./VideoItem";
 
 interface ResultListProps {
-  results: Item[];
+  results: BaseItem[];
 }
 
 const ResultList: FC<ResultListProps> = ({ results }) => {

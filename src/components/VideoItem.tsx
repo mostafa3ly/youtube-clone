@@ -6,19 +6,19 @@ import { convertDuration } from "../utils/convertDuration";
 
 const StyledVideoItem = styled.div`
   display: flex;
-  height: 120px;
+  height: 100px;
   margin: 16px 0;
 `;
 
 const StyledTitle = styled.p`
   margin: 0;
   font-weight: 600;
-  margin-bottom: 4px;
+  font-size: .8em;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 4;
-  line-clamp: 4;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
   -webkit-box-orient: vertical;
 `;
 
@@ -33,9 +33,10 @@ const ThumbnailContainer = styled.div`
 `;
 
 const StyledThumbnail = styled.img`
-  object-fit: contain;
+  object-fit: cover;
   background: black;
   width: 100%;
+  height: 100%;
 `;
 const Duration = styled.span`
   background: rgba(0, 0, 0, 0.7);
@@ -50,9 +51,15 @@ const Duration = styled.span`
 `;
 const SecondaryText = styled.p`
   color: grey;
-  font-size: small;
+  font-size: 0.7em;
   margin: 0;
   font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
 `;
 
 interface VideoItemProps {
@@ -60,7 +67,11 @@ interface VideoItemProps {
 }
 
 const VideoItem: FC<VideoItemProps> = ({
-  video: { snippet, viewCount, duration },
+  video: {
+    snippet,
+    statistics: { viewCount },
+    contentDetails: { duration },
+  },
 }) => {
   const thumbnail = snippet.thumbnails.default;
 
