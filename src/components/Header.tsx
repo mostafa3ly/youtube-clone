@@ -1,6 +1,6 @@
 import { FC } from "react";
 import styled from "styled-components";
-import useIsMobileView from "../hooks/useIsMobileView";
+import useIsMobile from "../hooks/useIsMobile";
 import { SearchProps } from "../interfaces/SearchProps";
 import DesktopHeadBar from "./DesktopHeadBar";
 import MobileHeadBar from "./MobileHeadBar";
@@ -25,12 +25,12 @@ const Header: FC<HeaderProps> = ({
   searchText,
   onSubmit,
 }) => {
-  const isMobileView = useIsMobileView();
+  const isMobile = useIsMobile();
 
   const renderHeader = (): JSX.Element => {
     // Can be replaced by CSS media queries.
 
-    return isMobileView ? (
+    return isMobile ? (
       <MobileHeadBar
         onSubmit={onSubmit}
         searchText={searchText}

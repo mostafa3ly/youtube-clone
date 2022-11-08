@@ -5,11 +5,10 @@ const StyledSelector = styled.select`
   padding: 10px 4px;
   border: 1px solid #ddd;
   border-radius: 3px;
-  margin: 2px 4px;
+  margin: 8px;
   min-width: 100px;
   background: #fcfcfc;
 `;
-
 
 interface FilterSelectorProps {
   options: Record<string | number, string>;

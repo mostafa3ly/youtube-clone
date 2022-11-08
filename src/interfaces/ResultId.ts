@@ -1,6 +1,6 @@
 import { ResultKind } from "../enums/ResultKind";
 
 export interface ResultId {
-    id: string;
+    videoId: string;
     kind: ResultKind;
 }

@@ -1,6 +1,6 @@
 import { FC } from "react";
 import styled from "styled-components";
-import useIsMobileView from "../hooks/useIsMobileView";
+import useIsMobile from "../hooks/useIsMobile";
 import DesktopFilterBar from "./DesktopFilterBar";
 import MobileFilterBar from "./MobileFilterBar";
 
@@ -22,12 +22,12 @@ interface FilterBarProps {
 }
 
 const FilterBar: FC<FilterBarProps> = ({ total }) => {
-  const isMobileView = useIsMobileView();
+  const isMobile = useIsMobile();
 
   const renderFilterBar = (): JSX.Element => {
     // Can be replaced by CSS media queries.
 
-    return isMobileView ? <MobileFilterBar /> : <DesktopFilterBar total={total}/>;
+    return isMobile ? <MobileFilterBar /> : <DesktopFilterBar total={total}/>;
   };
 
   return <StyledFilterBar>{renderFilterBar()}</StyledFilterBar>;

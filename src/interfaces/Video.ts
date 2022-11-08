@@ -5,10 +5,10 @@ export interface Video {
     id: ResultId;
     snippet: {
         title: string;
-        image: string;
         publishedAt: string;
         channelId: string;
         description: string;
+        channelTitle: string;
         thumbnails: VideoThumbnailsResult;
     }
 }
