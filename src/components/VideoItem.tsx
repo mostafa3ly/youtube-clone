@@ -15,6 +15,10 @@ const ThumbnailContainer = styled.div`
   min-width: 160px;
   max-width: 160px;
   position: relative;
+  @media (min-width: 768px) {
+    min-width: 220px;
+    max-width: 220px;
+  }
 `;
 
 const StyledThumbnail = styled.img`

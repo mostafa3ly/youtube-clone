@@ -1,7 +1,15 @@
-import { FC, Fragment } from "react";
+import { FC } from "react";
+import styled from "styled-components";
 import { SearchProps } from "../interfaces/SearchProps";
 import DesktopLogo from "./DesktopLogo";
 import DesktopSearchBox from "./DesktopSearchBox";
+
+const StyledDesktopHeadBar = styled.header`
+  height: 56px;
+  display: flex;
+  padding: 10px 0;
+  box-sizing: border-box;
+`;
 
 interface DesktopHeadBarProps extends SearchProps {}
 
@@ -11,14 +19,14 @@ const DesktopHeadBar: FC<DesktopHeadBarProps> = ({
   onSubmit,
 }) => {
   return (
-    <Fragment>
-      <DesktopLogo />
-      <DesktopSearchBox
-        searchText={searchText}
-        onChangeSearchText={onChangeSearchText}
-        onSubmit={onSubmit}
-      />
-    </Fragment>
+      <StyledDesktopHeadBar>
+        <DesktopLogo />
+        <DesktopSearchBox
+          searchText={searchText}
+          onChangeSearchText={onChangeSearchText}
+          onSubmit={onSubmit}
+        />
+      </StyledDesktopHeadBar>
   );
 };
 

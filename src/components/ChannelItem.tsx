@@ -17,6 +17,11 @@ const StyledThumbnail = styled.img`
   max-width: 100px;
   height: 100px;
   margin: auto 0;
+  @media (min-width: 768px) {
+    min-width: 140px;
+    max-width: 140px;
+    height: 140px;
+  }
 `;
 
 interface ChannelItemProps {

@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { DurationFilter } from "../enums/DurationFilter";
 import { TypeFilter } from "../enums/TypeFilter";
 import useIsMobile from "../hooks/useIsMobile";
+import Container from "./Container";
 import DesktopFilterBar from "./DesktopFilterBar";
 import MobileFilterBar from "./MobileFilterBar";
 
@@ -12,10 +13,9 @@ const StyledFilterBar = styled.div`
   border-bottom: 1px solid #ddd;
   flex-wrap: wrap;
   @media (min-width: 768px) {
-    margin-top: 16px;
-    justify-content: space-between;
-    background: #fcfcfc;
-    border-color: #f0f0f0;
+    padding-top: 16px;
+    background: #f5f5f5;
+    border-color: #e5e5e5;
   }
 `;
 
@@ -47,7 +47,9 @@ const FilterBar: FC<FilterBarProps> = ({
         duration={duration}
       />
     ) : (
-      <DesktopFilterBar total={total} />
+      <Container>
+        <DesktopFilterBar total={total} />
+      </Container>
     );
   };
 

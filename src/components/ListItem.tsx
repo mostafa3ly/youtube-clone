@@ -4,7 +4,10 @@ import styled from "styled-components";
 const StyledListItem = styled.div`
   display: flex;
   height: 100px;
-  margin: 16px 0;
+  margin-bottom: 16px;
+  @media (min-width: 768px) {
+    height: 140px;
+  }
 `;
 
 const ListItem: FC<PropsWithChildren> = ({ children }) => {
