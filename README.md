@@ -4,6 +4,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Available Scripts
 
+**Be sure to add your API key for Youtube V3 api in the enviorment variables**
+
 In the project directory, you can run:
 
 ### `yarn start`
