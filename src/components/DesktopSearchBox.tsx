@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { SearchProps } from "../interfaces/SearchProps";
 import search from "../assets/search.svg";
 
-const SearchBox = styled.div`
+const SearchBox = styled.form`
   flex-grow: 3;
   display: flex;
 `;
@@ -27,17 +27,18 @@ interface DesktopSearchBoxProps extends SearchProps {}
 const DesktopSearchBox: FC<DesktopSearchBoxProps> = ({
   onChangeSearchText,
   searchText,
+  onSubmit,
 }) => {
   return (
-    <SearchBox>
-      <SearchInput
-        type="search"
-        value={searchText}
-        onChange={onChangeSearchText}
-      />
-      <Button>
-        <img alt="Search" src={search} />
-      </Button>
+    <SearchBox onSubmit={onSubmit}>
+        <SearchInput
+          type="search"
+          value={searchText}
+          onChange={onChangeSearchText}
+        />
+        <Button type="submit">
+          <img alt="Search" src={search} />
+        </Button>
     </SearchBox>
   );
 };

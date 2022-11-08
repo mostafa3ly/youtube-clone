@@ -9,6 +9,7 @@ interface MobileHeadBarProps extends SearchProps {}
 const MobileHeadBar: FC<MobileHeadBarProps> = ({
   onChangeSearchText,
   searchText,
+  onSubmit,
 }) => {
   const [isEditing, setIsEditing] = useState(false);
 
@@ -23,6 +24,7 @@ const MobileHeadBar: FC<MobileHeadBarProps> = ({
         isEditing={isEditing}
         onChangeSearchText={onChangeSearchText}
         searchText={searchText}
+        onSubmit={onSubmit}
       />
       <MobileSearchButton onClickSearch={handleClickSearch} />
     </Fragment>
