@@ -14,6 +14,12 @@ const StyledTitle = styled.p`
   margin: 0;
   font-weight: 600;
   margin-bottom: 4px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  line-clamp: 4;
+  -webkit-box-orient: vertical;
 `;
 
 const StyledDetails = styled.div`
