@@ -2,27 +2,12 @@ import { FC } from "react";
 import styled from "styled-components";
 import { Channel } from "../interfaces/Channel";
 import { addCommasToNumbers } from "../utils/addCommasToNumbers";
-
-const StyledChannelItem = styled.div`
-  display: flex;
-  height: 100px;
-  margin: 16px 0;
-`;
+import ListItem from "./ListItem";
+import SecondaryText from "./SecondaryText";
+import Title from "./Title";
 
 const StyledDetails = styled.div`
   margin: auto 8px;
-`;
-
-const StyledTitle = styled.p`
-  margin: 0;
-  font-weight: 600;
-  font-size: .8em;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 4;
-  line-clamp: 4;
-  -webkit-box-orient: vertical;
 `;
 
 const StyledThumbnail = styled.img`
@@ -32,19 +17,6 @@ const StyledThumbnail = styled.img`
   max-width: 100px;
   height: 100px;
   margin: auto 0;
-`;
-
-const SecondaryText = styled.p`
-  color: grey;
-  font-size: .7em;
-  margin: 0;
-  font-weight: 600;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  line-clamp: 2;
-  -webkit-box-orient: vertical;
 `;
 
 interface ChannelItemProps {
@@ -60,14 +32,16 @@ const ChannelItem: FC<ChannelItemProps> = ({
   const thumbnail = snippet.thumbnails.default;
 
   return (
-    <StyledChannelItem>
+    <ListItem>
       <StyledThumbnail src={thumbnail.url} alt={snippet.title} />
       <StyledDetails>
-        <StyledTitle>{snippet.title}</StyledTitle>
+        <Title>{snippet.title}</Title>
         <SecondaryText>{addCommasToNumbers(+videoCount)} videos</SecondaryText>
-        <SecondaryText>{addCommasToNumbers(+subscriberCount)} subscribers</SecondaryText>
+        <SecondaryText>
+          {addCommasToNumbers(+subscriberCount)} subscribers
+        </SecondaryText>
       </StyledDetails>
-    </StyledChannelItem>
+    </ListItem>
   );
 };
 

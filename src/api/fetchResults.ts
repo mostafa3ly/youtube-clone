@@ -7,7 +7,7 @@ import { fetchVideos } from "./fetchVideos";
 
 export const fetchResults = async (q: string): Promise<SearchResult> => {
     const { data } = await api.get<SearchResult>("/search", {
-        params: { q, maxResults: 100, part: "snippet", type: "playlist" },
+        params: { q, maxResults: 100, part: "snippet" },
     });
     const items = await Promise.all(data.items.map(async (item) => {
         switch (item.id.kind) {
@@ -25,6 +25,6 @@ export const fetchResults = async (q: string): Promise<SearchResult> => {
                 return item;
         }
     }));
-    
+
     return { ...data, items };
 }
