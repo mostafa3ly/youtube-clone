@@ -1,9 +1,9 @@
-import { FC, KeyboardEvent } from "react";
+import { FC } from "react";
 import styled from "styled-components";
 import { SearchProps } from "../interfaces/SearchProps";
 import search from "../assets/search.svg";
 
-const SearchBox = styled.div`
+const SearchBox = styled.form`
   flex-grow: 3;
   display: flex;
 `;
@@ -29,21 +29,16 @@ const DesktopSearchBox: FC<DesktopSearchBoxProps> = ({
   searchText,
   onSubmit,
 }) => {
-  const handleOnKeyDown = (e: KeyboardEvent<HTMLInputElement>): void => {
-    if (e.code === "Enter") onSubmit();
-  };
-
   return (
-    <SearchBox>
-      <SearchInput
-        type="search"
-        value={searchText}
-        onChange={onChangeSearchText}
-        onKeyDown={handleOnKeyDown}
-      />
-      <Button onClick={onSubmit}>
-        <img alt="Search" src={search} />
-      </Button>
+    <SearchBox onSubmit={onSubmit}>
+        <SearchInput
+          type="search"
+          value={searchText}
+          onChange={onChangeSearchText}
+        />
+        <Button type="submit">
+          <img alt="Search" src={search} />
+        </Button>
     </SearchBox>
   );
 };

@@ -1,13 +1,14 @@
 import { api } from ".";
 import { ItemKind } from "../enums/ItemKind";
+import { TypeFilter } from "../enums/TypeFilter";
 import { SearchResult } from "../interfaces/SearchResult";
 import { fetchChannels } from "./fetchChannels";
 import { fetchPlaylists } from "./fetchPlaylists";
 import { fetchVideos } from "./fetchVideos";
 
-export const fetchResults = async (q: string): Promise<SearchResult> => {
+export const fetchResults = async (q: string, type: TypeFilter): Promise<SearchResult> => {
     const { data } = await api.get<SearchResult>("/search", {
-        params: { q, maxResults: 100, part: "snippet" },
+        params: { q, maxResults: 100, part: "snippet", type },
     });
     const items = await Promise.all(data.items.map(async (item) => {
         switch (item.id.kind) {

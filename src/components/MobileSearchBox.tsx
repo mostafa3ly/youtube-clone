@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, Fragment } from "react";
 import styled from "styled-components";
 import { SearchProps } from "../interfaces/SearchProps";
 
@@ -12,7 +12,7 @@ const SearchInput = styled.input`
   height: 100%;
 `;
 
-const SearchBox = styled.div`
+const SearchBox = styled.form`
   flex-grow: 1;
   margin: 10px 4px;
   display: flex;
@@ -29,22 +29,26 @@ interface MobileSearchBoxProps extends SearchProps {
 
 const MobileSearchBox: FC<MobileSearchBoxProps> = ({
   onChangeSearchText,
+  onSubmit,
   searchText,
   isEditing,
 }) => {
   const renderSearch = (): JSX.Element =>
     isEditing ? (
-      <SearchInput
-        type="search"
-        autoFocus
-        onChange={onChangeSearchText}
-        value={searchText}
-      />
+      <Fragment>
+        <SearchInput
+          type="search"
+          autoFocus
+          onChange={onChangeSearchText}
+          value={searchText}
+        />
+        <button type="submit" hidden />
+      </Fragment>
     ) : (
       <SearchText>{searchText}</SearchText>
     );
 
-  return <SearchBox>{renderSearch()}</SearchBox>;
+  return <SearchBox onSubmit={onSubmit}>{renderSearch()}</SearchBox>;
 };
 
 export default MobileSearchBox;
