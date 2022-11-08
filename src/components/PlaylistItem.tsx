@@ -14,6 +14,10 @@ const StyledThumbnail = styled.img`
   background: black;
   min-width: 160px;
   max-width: 160px;
+  @media (min-width: 768px) {
+    min-width: 220px;
+    max-width: 220px;
+  }
 `;
 
 interface PlaylistItemProps {

@@ -5,6 +5,9 @@ const StyledListItem = styled.div`
   display: flex;
   height: 100px;
   margin-bottom: 16px;
+  @media (min-width: 768px) {
+    height: 140px;
+  }
 `;
 
 const ListItem: FC<PropsWithChildren> = ({ children }) => {

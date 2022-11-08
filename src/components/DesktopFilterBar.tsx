@@ -1,11 +1,17 @@
-import { FC, Fragment } from "react";
+import { FC } from "react";
 import styled from "styled-components";
 import filter from "../assets/filter.svg";
 import { addCommasToNumbers } from "../utils/addCommasToNumbers";
 
+const StyledDesktopFilterBar = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
 const ResultText = styled.p`
   font-size: small;
 `;
+
 const FilterButton = styled.button`
   text-transform: uppercase;
   border: none;
@@ -23,14 +29,13 @@ interface DesktopFilterBarProps {
 
 const DesktopFilterBar: FC<DesktopFilterBarProps> = ({ total }) => {
   return (
-    <Fragment>
-      <ResultText>About {addCommasToNumbers(total)} results</ResultText>
-      <FilterButton>
-        <img src={filter} alt="Filter" />
-        filter
-      </FilterButton>
-    </Fragment>
-  );
+      <StyledDesktopFilterBar>
+        <ResultText>About {addCommasToNumbers(total)} results</ResultText>
+        <FilterButton>
+          <img src={filter} alt="Filter" />
+          filter
+        </FilterButton>
+      </StyledDesktopFilterBar>  );
 };
 
 export default DesktopFilterBar;
