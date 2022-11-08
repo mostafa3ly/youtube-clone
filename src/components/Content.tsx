@@ -1,14 +1,18 @@
 import { FC } from "react";
 import styled from "styled-components";
-import { Video } from "../interfaces/Video";
+import { Item } from "../interfaces/Item";
 import LoadingView from "./LoadingView";
 import ResultList from "./ResultList";
 
-const StyledContent = styled.main``;
+const StyledContent = styled.main`
+  @media (max-width: 768px) {
+    padding: 0 8px;
+  }
+`;
 
 interface ContentProps {
   isLoading: boolean;
-  results: Video[];
+  results: Item[];
 }
 
 const Content: FC<ContentProps> = ({ isLoading, results }) => {

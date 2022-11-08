@@ -1,6 +1,6 @@
 import { Thumbnail } from "./Thumbnail";
 
-export interface VideoThumbnailsResult {
+export interface ThumbnailsResult {
   default: Thumbnail;
   high: Thumbnail;
   medium: Thumbnail;

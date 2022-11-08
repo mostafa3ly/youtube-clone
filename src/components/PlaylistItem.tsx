@@ -1,8 +1,8 @@
 import { FC } from "react";
 import styled from "styled-components";
-import { Video } from "../interfaces/Video";
+import { PLaylist } from "../interfaces/Playlist";
 
-const StyledVideoItem = styled.div`
+const StyledPlaylistItem = styled.div`
   display: flex;
   height: 120px;
   margin: 16px 0;
@@ -29,22 +29,22 @@ const SecondaryText = styled.p`
   margin: 0;
 `;
 
-interface VideoItemProps {
-  video: Video;
+interface PlaylistItemProps {
+  playlist: PLaylist;
 }
 
-const VideoItem: FC<VideoItemProps> = ({ video: { snippet } }) => {
+const PlaylistItem: FC<PlaylistItemProps> = ({ playlist: { snippet } }) => {
   const thumbnail = snippet.thumbnails.default;
-
+  
   return (
-    <StyledVideoItem>
+    <StyledPlaylistItem>
       <StyledThumbnail src={thumbnail.url} alt={snippet.title} />
       <StyledDetails>
         <StyledTitle>{snippet.title}</StyledTitle>
         <SecondaryText>{snippet.channelTitle}</SecondaryText>
       </StyledDetails>
-    </StyledVideoItem>
+    </StyledPlaylistItem>
   );
 };
 
-export default VideoItem;
+export default PlaylistItem;

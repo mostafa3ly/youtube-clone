@@ -1,6 +1,6 @@
-import { Video } from "./Video";
+import { Item } from "./Item";
 
 export interface SearchResult {
-    items: Video[];
+    items: Item[];
     pageInfo: { totalResults: number }
 }

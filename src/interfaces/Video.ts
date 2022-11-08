@@ -1,14 +1,6 @@
-import { ResultId } from "./ResultId";
-import { VideoThumbnailsResult } from "./VideoThumbnailsResult";
+import { Item } from "./Item";
+import { VideoId } from "./VideoId";
 
-export interface Video {
-    id: ResultId;
-    snippet: {
-        title: string;
-        publishedAt: string;
-        channelId: string;
-        description: string;
-        channelTitle: string;
-        thumbnails: VideoThumbnailsResult;
-    }
+export interface Video extends Item {
+    id: VideoId;
 }

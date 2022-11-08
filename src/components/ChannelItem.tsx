@@ -1,11 +1,15 @@
 import { FC } from "react";
 import styled from "styled-components";
-import { Video } from "../interfaces/Video";
+import { Channel } from "../interfaces/Channel";
 
-const StyledVideoItem = styled.div`
+const StyledChannelItem = styled.div`
   display: flex;
   height: 120px;
   margin: 16px 0;
+`;
+
+const StyledDetails = styled.div`
+  margin: auto 8px;
 `;
 
 const StyledTitle = styled.p`
@@ -13,14 +17,9 @@ const StyledTitle = styled.p`
   font-weight: 500;
 `;
 
-const StyledDetails = styled.div`
-  margin: 0 8px;
-`;
-
 const StyledThumbnail = styled.img`
   object-fit: contain;
-  background: black;
-  width: 160px;
+  border-radius: 50%;
 `;
 
 const SecondaryText = styled.p`
@@ -29,22 +28,22 @@ const SecondaryText = styled.p`
   margin: 0;
 `;
 
-interface VideoItemProps {
-  video: Video;
+interface ChannelItemProps {
+  channel: Channel;
 }
 
-const VideoItem: FC<VideoItemProps> = ({ video: { snippet } }) => {
+const ChannelItem: FC<ChannelItemProps> = ({ channel: { snippet } }) => {
   const thumbnail = snippet.thumbnails.default;
 
   return (
-    <StyledVideoItem>
+    <StyledChannelItem>
       <StyledThumbnail src={thumbnail.url} alt={snippet.title} />
       <StyledDetails>
         <StyledTitle>{snippet.title}</StyledTitle>
         <SecondaryText>{snippet.channelTitle}</SecondaryText>
       </StyledDetails>
-    </StyledVideoItem>
+    </StyledChannelItem>
   );
 };
 
-export default VideoItem;
+export default ChannelItem;
