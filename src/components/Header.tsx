@@ -14,7 +14,11 @@ const StyledHeader = styled.header`
   }
   @media (min-width: 768px) {
     padding: 10px 0;
-    box-shadow: 0 1px 4px #eee;
+    box-shadow: 0 1px 2px #eee;
+    position: sticky;
+    top: 0;
+    background: white;
+    z-index: 999999;
   }
 `;
 
