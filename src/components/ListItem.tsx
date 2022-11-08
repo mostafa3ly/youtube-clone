@@ -4,7 +4,7 @@ import styled from "styled-components";
 const StyledListItem = styled.div`
   display: flex;
   height: 100px;
-  margin: 16px 0;
+  margin-bottom: 16px;
 `;
 
 const ListItem: FC<PropsWithChildren> = ({ children }) => {

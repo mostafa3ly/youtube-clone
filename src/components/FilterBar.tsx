@@ -12,10 +12,10 @@ const StyledFilterBar = styled.div`
   border-bottom: 1px solid #ddd;
   flex-wrap: wrap;
   @media (min-width: 768px) {
-    margin-top: 16px;
+    padding-top: 16px;
     justify-content: space-between;
-    background: #fcfcfc;
-    border-color: #f0f0f0;
+    background: #f5f5f5;
+    border-color: #e5e5e5;
   }
 `;
 

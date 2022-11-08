@@ -5,8 +5,11 @@ import LoadingView from "./LoadingView";
 import ResultList from "./ResultList";
 
 const StyledContent = styled.main`
+  background: #f5f5f5;
+  padding: 16px 0;
   @media (max-width: 768px) {
-    padding: 0 8px;
+    padding: 16px 8px;
+    background: white;
   }
 `;
 
