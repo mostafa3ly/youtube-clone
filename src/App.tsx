@@ -21,6 +21,7 @@ function App() {
 
   const handleFetchResults = async (): Promise<void> => {
     try {
+      if (!searchText) return;
       setIsLoading(true);
       const result = await fetchResults(searchText);
       if (isMounted()) {
